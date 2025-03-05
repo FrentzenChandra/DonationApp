@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
 import findFonts from '../fonts/helper/helper';
 import {fontScale, horizontalScale, verticalScale} from './scaling';
-import {height} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
+import {height, width} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 
 const globalStyle = StyleSheet.create({
+  whiteBg: {flex: 1, backgroundColor: '#fff'},
   input: {
     color: '#022150',
     fontFamily: findFonts('Inter', '500'),
@@ -49,6 +50,33 @@ const globalStyle = StyleSheet.create({
     fontFamily: findFonts('Inter', '600'),
     fontSize: fontScale(16),
     textAlign: 'center',
+  },
+  backButton: {
+    marginLeft: horizontalScale(20),
+    marginTop: verticalScale(20),
+  },
+  profileImage: {
+    width: horizontalScale(50),
+    height: horizontalScale(50),
+    borderRadius: width,
+    marginLeft: 'auto',
+  },
+  searchInputContainer: {
+    marginTop: verticalScale(20),
+    backgroundColor: '#F3F5F9',
+    width: '100%',
+    height: verticalScale(40),
+    borderRadius: height,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: horizontalScale(16),
+  },
+  searchInput: {
+    marginLeft: horizontalScale(4),
+    width: '100%',
+    color: 'black',
+    fontFamily: findFonts('Inter', '400'),
+    fontSize: 16,
   },
 });
 

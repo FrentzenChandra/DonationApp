@@ -7,19 +7,29 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Title from '../../component/Title/Title';
-import Loginstyle from './Style';
+import SignInStyle from './Style';
 import globalStyle from '../../assets/style/style';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
-import {fontScale} from '../../assets/style/scaling';
+import {fontScale, horizontalScale} from '../../assets/style/scaling';
 import {faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
-const Login = ({navigation}) => {
+const SingIn = ({navigation}) => {
   const [isSecureTextEntry, setisSecureTextEntry] = useState(true);
   return (
     <SafeAreaView style={globalStyle.whiteBg}>
-      <View style={Loginstyle.container}>
-        <Title title="Welcome Back"></Title>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <FontAwesomeIcon
+          style={globalStyle.backButton}
+          icon={faArrowLeft}
+          size={horizontalScale(18)}
+        />
+      </TouchableOpacity>
+      <View style={SignInStyle.container}>
+        <Title title="Hello and Welcome !"></Title>
+        <Text style={globalStyle.inputInfo}>First & Last Name</Text>
+        <TextInput style={globalStyle.input} />
         <Text style={globalStyle.inputInfo}>Email</Text>
         <TextInput style={globalStyle.input} />
         <Text style={globalStyle.inputInfo}>Password</Text>
@@ -38,19 +48,12 @@ const Login = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={globalStyle.button}
-          onPress={() => {
-            navigation.navigate('Home');
-          }}>
-          <Text style={globalStyle.buttonInfo}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text style={[Loginstyle.signInText]}>Don't have an account ?</Text>
+        <TouchableOpacity style={globalStyle.button}>
+          <Text style={globalStyle.buttonInfo}>Register</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
-export default Login;
+export default SingIn;
