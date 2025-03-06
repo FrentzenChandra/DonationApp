@@ -52,8 +52,30 @@ const categorys = [
   },
 ];
 
+const CategoryButton = ({whichButtonActive, item, index, onPress}) => {
+  return (
+    <TouchableOpacity
+      style={[
+        HomeStyle.categoryButton,
+        index == 0 ? {marginLeft: 0} : {},
+        whichButtonActive == item.name ? {} : HomeStyle.categoryButtonNotActive,
+      ]}
+      onPress={onPress}>
+      <Text
+        style={[
+          HomeStyle.categoryButtonText,
+          whichButtonActive == item.name
+            ? {}
+            : HomeStyle.categoryButtonTextNotActive,
+        ]}>
+        {item.name}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
 const Home = () => {
-  const [whicButtonActive, setwhicButtonActive] = useState(categorys[0].name);
+  const [whichButtonActive, setwhichButtonActive] = useState(categorys[0].name);
 
   return (
     <SafeAreaView style={HomeStyle.container}>
@@ -103,29 +125,276 @@ const Home = () => {
       <View style={HomeStyle.categoryTitle}>
         <Title title="Select Category"></Title>
       </View>
-      {/* <FlatList
+      <FlatList
+        style={HomeStyle.categoryButtonContainer}
         horizontal={true}
+        scrollEnabled={true}
+        showsHorizontalScrollIndicator={false}
         data={categorys}
-        renderItem={({item}) => {
-          <TouchableOpacity
-            style={[
-              globalStyle.button,
-              item.name === whicButtonActive
-                ? HomeStyle.categoryButton
-                : HomeStyle.categoryButtonNotActive,
-            ]}
-            onPress={() => {}}>
+        renderItem={({item, index}) => {
+          return (
+            <CategoryButton
+              onPress={() => {
+                setwhichButtonActive(item.name);
+              }}
+              index={index}
+              whichButtonActive={whichButtonActive}
+              item={item}
+            />
+          );
+        }}></FlatList>
+
+      <ScrollView style={{height: 250}}>
+        <View style={HomeStyle.donationProductContainer}>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
             <Text
               style={[
-                globalStyle.buttonInfo,
-                item.name === whicButtonActive
-                  ? HomeStyle.categoryButtonText
-                  : HomeStyle.categoryButtonTextNotActive,
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
               ]}>
-              {item.name}
+              $ 44.60
             </Text>
-          </TouchableOpacity>;
-        }}></FlatList> */}
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+          <View>
+            <View style={HomeStyle.donationProductPicture}>
+              <View style={HomeStyle.donationProductCategory}>
+                <Text style={HomeStyle.donationProductCategoryText}>
+                  Education
+                </Text>
+              </View>
+            </View>
+            <Text style={HomeStyle.donationProductCategoryName}>
+              Genius Rubik
+            </Text>
+            <Text
+              style={[
+                HomeStyle.donationProductCategoryName,
+                {color: '#156CF7', marginBottom: 20},
+              ]}>
+              $ 44.60
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
