@@ -20,6 +20,8 @@ import {
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import {height} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
+import {useDispatch, useSelector} from 'react-redux';
+import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
 
 const categorys = [
   {
@@ -76,75 +78,79 @@ const CategoryButton = ({whichButtonActive, item, index, onPress}) => {
 
 const Home = () => {
   const [whichButtonActive, setwhichButtonActive] = useState(categorys[0].name);
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   return (
-    <SafeAreaView style={HomeStyle.container}>
-      <View style={HomeStyle.headerContainer}>
-        <View>
-          <Text style={HomeStyle.greeting}>Hello,</Text>
-          <Title title="Acen Chandra.🤗" />
-        </View>
-        <Image
-          source={require('../../assets/pictures/profile.png')}
-          style={globalStyle.profileImage}></Image>
-      </View>
-      <View style={globalStyle.searchInputContainer}>
-        <TouchableOpacity>
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            size={horizontalScale(22)}
-            color="#25C0FF"
-          />
-        </TouchableOpacity>
-        <TextInput style={globalStyle.searchInput} placeholder="Search" />
-      </View>
-      <TouchableOpacity>
-        <ImageBackground
-          source={require('../../assets/pictures/heroBg.png')}
-          style={HomeStyle.heroContainer}>
-          <View style={HomeStyle.heroDescriptionContainer}>
-            <Text style={HomeStyle.heroDescription}>
-              New Arrival change Your lifeStyle
-            </Text>
-            <View style={HomeStyle.heroLinkContainer}>
-              <Text style={HomeStyle.heroDescriptionLink}>Check Now</Text>
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                color="white"
-                size={20}
-                style={HomeStyle.rightArrowIcon}
-              />
-            </View>
+    <SafeAreaView style={globalStyle.whiteBg}>
+      <ScrollView style={HomeStyle.container}>
+        <View style={HomeStyle.headerContainer}>
+          <View>
+            <Text style={HomeStyle.greeting}>Hello,</Text>
+            <Title title={`${user.firstName} ${user.lastName}`} />
           </View>
           <Image
-            style={HomeStyle.heroObject}
-            source={require('../../assets/pictures/heroObject.png')}
-          />
-        </ImageBackground>
-      </TouchableOpacity>
-      <View style={HomeStyle.categoryTitle}>
-        <Title title="Select Category"></Title>
-      </View>
-      <FlatList
-        style={HomeStyle.categoryButtonContainer}
-        horizontal={true}
-        scrollEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        data={categorys}
-        renderItem={({item, index}) => {
-          return (
-            <CategoryButton
-              onPress={() => {
-                setwhichButtonActive(item.name);
-              }}
-              index={index}
-              whichButtonActive={whichButtonActive}
-              item={item}
+            source={require('../../assets/pictures/profile.png')}
+            style={globalStyle.profileImage}></Image>
+        </View>
+        <View style={globalStyle.searchInputContainer}>
+          <TouchableOpacity
+            onPress={() =>
+              dispatch(updateFirstName({firstName: 'ACEN SANJAYA'}))
+            }>
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              size={horizontalScale(22)}
+              color="#25C0FF"
             />
-          );
-        }}></FlatList>
-
-      <ScrollView style={{height: 250}}>
+          </TouchableOpacity>
+          <TextInput style={globalStyle.searchInput} placeholder="Search" />
+        </View>
+        <TouchableOpacity onPress={() => dispatch(resetToInitialState())}>
+          <ImageBackground
+            source={require('../../assets/pictures/heroBg.png')}
+            style={HomeStyle.heroContainer}>
+            <View style={HomeStyle.heroDescriptionContainer}>
+              <Text style={HomeStyle.heroDescription}>
+                New Arrival change Your lifeStyle
+              </Text>
+              <View style={HomeStyle.heroLinkContainer}>
+                <Text style={HomeStyle.heroDescriptionLink}>Check Now</Text>
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  color="white"
+                  size={20}
+                  style={HomeStyle.rightArrowIcon}
+                />
+              </View>
+            </View>
+            <Image
+              style={HomeStyle.heroObject}
+              source={require('../../assets/pictures/heroObject.png')}
+            />
+          </ImageBackground>
+        </TouchableOpacity>
+        <View style={HomeStyle.categoryTitle}>
+          <Title title="Select Category"></Title>
+        </View>
+        <FlatList
+          style={HomeStyle.categoryButtonContainer}
+          horizontal={true}
+          scrollEnabled={true}
+          showsHorizontalScrollIndicator={false}
+          data={categorys}
+          renderItem={({item, index}) => {
+            return (
+              <CategoryButton
+                onPress={() => {
+                  setwhichButtonActive(item.name);
+                }}
+                index={index}
+                whichButtonActive={whichButtonActive}
+                item={item}
+              />
+            );
+          }}></FlatList>
         <View style={HomeStyle.donationProductContainer}>
           <View>
             <View style={HomeStyle.donationProductPicture}>

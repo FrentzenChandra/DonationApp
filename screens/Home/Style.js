@@ -9,7 +9,6 @@ import {height, width} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 
 const HomeStyle = StyleSheet.create({
   container: {
-    flex: 1,
     paddingTop: verticalScale(24),
     paddingHorizontal: horizontalScale(24),
     backgroundColor: '#fff',
@@ -63,6 +62,7 @@ const HomeStyle = StyleSheet.create({
   },
   categoryButtonContainer: {
     flexGrow: 1,
+    overflow: 'visible',
   },
   categoryButton: {
     paddingHorizontal: horizontalScale(25),
@@ -110,6 +110,7 @@ const HomeStyle = StyleSheet.create({
     fontSize: fontScale(10),
   },
   donationProductContainer: {
+    marginTop: verticalScale(30),
     flexDirection: 'row',
     flexWrap: 'wrap',
     display: 'flex',
