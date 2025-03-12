@@ -16,7 +16,9 @@ const Products = props => {
           <Text style={style.badgeText}>{props.category}</Text>
         </View>
       </ImageBackground>
-      <Text style={style.donationProductCategoryName}>{props.name}</Text>
+      <Text numberOfLines={1} style={style.donationProductCategoryName}>
+        {props.name}
+      </Text>
       <Text
         style={[
           style.donationProductCategoryName,

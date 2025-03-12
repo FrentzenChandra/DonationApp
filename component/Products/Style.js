@@ -9,7 +9,8 @@ import {width} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 
 const style = StyleSheet.create({
   donationItemsContainer: {
-    width: '50%',
+    marginHorizontal: 2,
+    width: '44%',
   },
   donationProductPicture: {
     width: horizontalScale(140),
