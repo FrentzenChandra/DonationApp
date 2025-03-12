@@ -12,6 +12,7 @@ const HomeStyle = StyleSheet.create({
     paddingTop: verticalScale(24),
     paddingHorizontal: horizontalScale(24),
     backgroundColor: '#fff',
+    flex: 1,
   },
   greeting: {
     color: '#636776',
@@ -86,40 +87,12 @@ const HomeStyle = StyleSheet.create({
   categoryButtonTextNotActive: {
     color: '#79869F',
   },
-  donationProductPicture: {
-    width: horizontalScale(140),
-    height: horizontalScale(155),
-    backgroundColor: '#D9D9D9',
-    borderRadius: horizontalScale(20),
-    overflow: 'hidden',
-    marginBottom: verticalScale(10),
-  },
-  donationProductCategory: {
-    backgroundColor: '#145855',
-    marginTop: verticalScale(13),
-    marginLeft: horizontalScale(10),
-    width: '50%',
-    paddingHorizontal: horizontalScale(3),
-    paddingVertical: verticalScale(3),
-    borderRadius: width,
-  },
-  donationProductCategoryText: {
-    textAlign: 'center',
-    fontFamily: findFonts('Inter', 400),
-    color: '#fff',
-    fontSize: fontScale(10),
-  },
   donationProductContainer: {
     marginTop: verticalScale(30),
-    flexDirection: 'row',
     flexWrap: 'wrap',
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  donationProductCategoryName: {
-    marginLeft: 5,
-    fontSize: 20,
-    fontFamily: findFonts('Inter', 600),
   },
 });
 
