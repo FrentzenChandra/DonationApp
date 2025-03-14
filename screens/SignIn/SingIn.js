@@ -14,6 +14,8 @@ import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
 import {fontScale, horizontalScale} from '../../assets/style/scaling';
 import {faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import Input from '../../component/Input/Input';
+import PasswordInput from '../../component/PasswordInput/PasswordInput';
 
 const SingIn = ({navigation}) => {
   const [isSecureTextEntry, setisSecureTextEntry] = useState(true);
@@ -28,26 +30,22 @@ const SingIn = ({navigation}) => {
       </TouchableOpacity>
       <View style={SignInStyle.container}>
         <Title title="Hello and Welcome !"></Title>
-        <Text style={globalStyle.inputInfo}>First & Last Name</Text>
-        <TextInput style={globalStyle.input} />
-        <Text style={globalStyle.inputInfo}>Email</Text>
-        <TextInput style={globalStyle.input} />
-        <Text style={globalStyle.inputInfo}>Password</Text>
-        <View style={globalStyle.passwordInputContainer}>
-          <TextInput
-            style={globalStyle.passwordInput}
-            secureTextEntry={isSecureTextEntry}></TextInput>
-          <TouchableOpacity
-            style={globalStyle.passwordInputIcon}
-            onPress={() => {
-              setisSecureTextEntry(!isSecureTextEntry);
-            }}>
-            <FontAwesomeIcon
-              size={fontScale(22)}
-              icon={isSecureTextEntry ? faEye : faEyeSlash}
-            />
-          </TouchableOpacity>
-        </View>
+        <Input
+          label="First name & Last name"
+          placeHolder={'Insert Your Name'}
+          onChangeText={value => {}}
+        />
+        <Input
+          label="Email"
+          placeHolder={'Insert Your Email Here'}
+          onChangeText={value => {}}
+        />
+        <PasswordInput
+          label="Password"
+          placeHolder={'Insert Your Password Here'}
+          onChangeText={value => {}}
+        />
+
         <TouchableOpacity style={globalStyle.button}>
           <Text style={globalStyle.buttonInfo}>Register</Text>
         </TouchableOpacity>

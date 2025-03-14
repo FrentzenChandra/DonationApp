@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import style from './Style';
 import PropTypes from 'prop-types';
 
 const Products = props => {
   return (
-    <View style={style.donationItemsContainer}>
+    <TouchableOpacity
+      onPress={props.onPress}
+      style={style.donationItemsContainer}>
       <ImageBackground
         source={{
           uri: props.pictureUrl,
@@ -13,7 +15,9 @@ const Products = props => {
         resizeMode="cover"
         style={style.donationProductPicture}>
         <View style={style.donationProductCategory}>
-          <Text style={style.badgeText}>{props.category}</Text>
+          <Text numberOfLines={2} style={style.badgeText}>
+            {props.category}
+          </Text>
         </View>
       </ImageBackground>
       <Text numberOfLines={1} style={style.donationProductCategoryName}>
@@ -26,7 +30,7 @@ const Products = props => {
         ]}>
         {`$ ${props.price}`}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -35,6 +39,7 @@ Products.propTypes = {
   price: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   pictureUrl: PropTypes.string.isRequired,
+  onPress: PropTypes.any.isRequired,
 };
 
 export default Products;
