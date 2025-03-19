@@ -15,6 +15,7 @@ const PasswordInput = props => {
       <Text style={globalStyle.inputInfo}>{props.label}</Text>
       <View style={globalStyle.passwordInputContainer}>
         <TextInput
+          autoComplete="password"
           placeholder={props.placeHolder}
           style={globalStyle.passwordInput}
           secureTextEntry={isSecureTextEntry}

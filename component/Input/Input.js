@@ -10,6 +10,7 @@ const Input = props => {
     <>
       <Text style={globalStyle.inputInfo}>{props.label}</Text>
       <TextInput
+        autoComplete={props.autoComplete}
         placeholder={props.placeHolder}
         style={globalStyle.input}
         onChangeText={value => {
@@ -26,6 +27,7 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   placeHolder: PropTypes.string,
   onChangeText: PropTypes.func.isRequired,
+  autoComplete: PropTypes.string,
 };
 
 export default Input;

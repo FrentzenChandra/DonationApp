@@ -5,6 +5,12 @@ import {height, width} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 
 const globalStyle = StyleSheet.create({
   whiteBg: {flex: 1, backgroundColor: '#fff'},
+  loading: {
+    position: 'absolute',
+    alignSelf: 'center',
+    color: '#DE0f3f',
+    top: '50%',
+  },
   input: {
     color: '#022150',
     fontFamily: findFonts('Inter', '500'),
@@ -12,7 +18,8 @@ const globalStyle = StyleSheet.create({
     borderBottomWidth: 1,
     fontSize: fontScale(16),
     paddingHorizontal: 0,
-    height: verticalScale(32),
+    height: verticalScale(40),
+    paddingVertical: verticalScale(2),
   },
   inputInfo: {
     color: '#36455A',
@@ -26,7 +33,8 @@ const globalStyle = StyleSheet.create({
     fontSize: fontScale(16),
     paddingHorizontal: 0,
     width: '90%',
-    height: verticalScale(32),
+    height: verticalScale(40),
+    paddingVertical: verticalScale(2),
   },
   passwordInputContainer: {
     borderBottomColor: 'black',
@@ -38,7 +46,7 @@ const globalStyle = StyleSheet.create({
     marginLeft: 'auto',
   },
   button: {
-    marginTop: verticalScale(40),
+    marginTop: verticalScale(20),
     width: '100%',
     height: verticalScale(40),
     backgroundColor: '#2979F2',
@@ -77,6 +85,20 @@ const globalStyle = StyleSheet.create({
     color: 'black',
     fontFamily: findFonts('Inter', '400'),
     fontSize: 16,
+  },
+  errorMessage: {
+    color: 'red',
+    alignSelf: 'center',
+    marginTop: verticalScale(20),
+    fontFamily: findFonts('Inter', 700),
+    fontSize: fontScale(15),
+  },
+  errorMessageInput: {
+    color: 'red',
+    alignSelf: 'center',
+    marginTop: verticalScale(2),
+    fontFamily: findFonts('Inter', 500),
+    fontSize: fontScale(15),
   },
 });
 

@@ -336,17 +336,14 @@ const Home = ({navigation}) => {
         <View style={HomeStyle.headerContainer}>
           <View>
             <Text style={HomeStyle.greeting}>Hello,</Text>
-            <Title title={`${user.firstName} ${user.lastName}`} />
+            <Title title={`${user.displayName} `} />
           </View>
           <Image
             source={require('../../assets/pictures/profile.png')}
             style={globalStyle.profileImage}></Image>
         </View>
         <View style={globalStyle.searchInputContainer}>
-          <TouchableOpacity
-            onPress={() =>
-              dispatch(updateFirstName({firstName: 'ACEN SANJAYA'}))
-            }>
+          <TouchableOpacity onPress={() => {}}>
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               size={horizontalScale(22)}
