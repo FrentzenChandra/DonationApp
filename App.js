@@ -8,13 +8,14 @@ import {Provider} from 'react-redux';
 import store from './redux/Store';
 import {persistedStore} from './redux/Store';
 import {PersistGate} from 'redux-persist/integration/react';
+import RootNavigation from './navigation/RootNavigation';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistedStore}>
+      <PersistGate persistor={persistedStore} loading={null}>
         <NavigationContainer>
-          <MainNavigation />
+          <RootNavigation />
         </NavigationContainer>
       </PersistGate>
     </Provider>

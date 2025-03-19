@@ -47,7 +47,7 @@ const loginUser = async (email, password) => {
       },
       message: 'Success',
       error: '',
-      code: 400,
+      code: 500,
     };
   } catch (error) {
     if (error.code === 'auth/user-not-found') {

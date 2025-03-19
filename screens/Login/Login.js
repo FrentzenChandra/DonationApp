@@ -64,7 +64,7 @@ const Login = ({navigation}) => {
             }
             console.log(response);
             dispatch(login(response.data));
-            navigation.navigate('Home');
+            navigation.navigate(Routes.Home);
           }}>
           <Text style={globalStyle.buttonInfo}>Login</Text>
         </TouchableOpacity>

@@ -304,6 +304,8 @@ const Home = ({navigation}) => {
 
   const whichCategoryActive = useSelector(state => state.category);
   const user = useSelector(state => state.user);
+  console.log('INi state user redux : ');
+  console.log(user);
 
   const [donationItems, setDonationItems] = useState([]);
 
@@ -343,7 +345,10 @@ const Home = ({navigation}) => {
             style={globalStyle.profileImage}></Image>
         </View>
         <View style={globalStyle.searchInputContainer}>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => {
+              console.log(user);
+            }}>
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               size={horizontalScale(22)}

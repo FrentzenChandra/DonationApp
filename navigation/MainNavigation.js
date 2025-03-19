@@ -8,17 +8,24 @@ import Donate from '../screens/Donate/Donate';
 
 const Stack = createNativeStackNavigator();
 
-const MainNavigation = () => {
+export const Authincated = () => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.Login}
+      initialRouteName={Routes.Home}
       screenOptions={{header: () => {}}}>
-      <Stack.Screen name={Routes.Login} component={Login}></Stack.Screen>
-      <Stack.Screen name={Routes.SignIn} component={SingIn}></Stack.Screen>
-      <Stack.Screen name={Routes.Home} component={Home}></Stack.Screen>
-      <Stack.Screen name={Routes.Donate} component={Donate}></Stack.Screen>
+      <Stack.Screen name={Routes.Home} component={Home} />
+      <Stack.Screen name={Routes.Donate} component={Donate} />
     </Stack.Navigator>
   );
 };
 
-export default MainNavigation;
+export const UnAuthicated = () => {
+  return (
+    <Stack.Navigator
+      initialRouteName={Routes.Login}
+      screenOptions={{header: () => {}}}>
+      <Stack.Screen name={Routes.SignIn} component={SingIn} />
+      <Stack.Screen name={Routes.Login} component={Login} />
+    </Stack.Navigator>
+  );
+};
