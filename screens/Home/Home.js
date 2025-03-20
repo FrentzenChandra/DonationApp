@@ -1,6 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {useState, useEffect} from 'react';
 import {
+  Alert,
   FlatList,
   Image,
   ImageBackground,
@@ -21,10 +22,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {height} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 import {useDispatch, useSelector} from 'react-redux';
-import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
+import {
+  resetToInitialState,
+  resetUserState,
+  updateFirstName,
+} from '../../redux/reducers/User';
 import {updateActiveCategory} from '../../redux/reducers/Category';
 import Products from '../../component/Products/Products';
 import {updateItem} from '../../redux/reducers/SingleItemDonation';
+import {logoutUser} from '../../API/user';
 
 const allDonationsItems = [
   {
@@ -304,7 +310,6 @@ const Home = ({navigation}) => {
 
   const whichCategoryActive = useSelector(state => state.category);
   const user = useSelector(state => state.user);
-  console.log('INi state user redux : ');
   console.log(user);
 
   const [donationItems, setDonationItems] = useState([]);
@@ -340,9 +345,22 @@ const Home = ({navigation}) => {
             <Text style={HomeStyle.greeting}>Hello,</Text>
             <Title title={`${user.displayName} `} />
           </View>
-          <Image
-            source={require('../../assets/pictures/profile.png')}
-            style={globalStyle.profileImage}></Image>
+          <View style={globalStyle.profileImageContainer}>
+            <Image
+              source={require('../../assets/pictures/profile.png')}
+              style={globalStyle.profileImage}
+            />
+            <TouchableOpacity
+              onPress={async () => {
+                dispatch(resetUserState());
+                const response = await logoutUser();
+                response.error
+                  ? Alert.alert('Logout Failed', 'Logout failed!')
+                  : '';
+              }}>
+              <Text style={globalStyle.logoutText}>Logout</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={globalStyle.searchInputContainer}>
           <TouchableOpacity

@@ -1,6 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
+  token: '',
+  displayName: '',
+  email: '',
   isLoggedIn: false,
 };
 
@@ -11,16 +14,16 @@ export const User = createSlice({
     login: (state, action) => {
       return {...action.payload, isLoggedIn: true};
     },
-    logout: (state, action) => {
-      state.isLoggedIn = false;
-      return {};
-    },
-    resetToInitialState: (state, action) => {
+    resetUserState: (state, action) => {
       return initialState;
+    },
+    updateToken: (state, action) => {
+      state.displayName = 'Ayam Goreng';
+      state.token = action.payload;
     },
   },
 });
 
-export const {resetToInitialState, login} = User.actions;
+export const {resetUserState, login, updateToken} = User.actions;
 
 export default User.reducer;

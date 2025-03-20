@@ -21,6 +21,7 @@ const HomeStyle = StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   heroContainer: {
     width: '100%',

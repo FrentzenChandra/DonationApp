@@ -63,11 +63,20 @@ const globalStyle = StyleSheet.create({
     marginLeft: horizontalScale(20),
     marginTop: verticalScale(20),
   },
+  profileImageContainer: {
+    marginLeft: 'auto',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
   profileImage: {
     width: horizontalScale(50),
     height: horizontalScale(50),
     borderRadius: width,
-    marginLeft: 'auto',
+  },
+  logoutText: {
+    color: '#156CF7',
+    fontFamily: findFonts('Inter', 600),
+    fontSize: fontScale(18),
   },
   searchInputContainer: {
     marginTop: verticalScale(20),

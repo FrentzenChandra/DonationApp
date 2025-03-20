@@ -64,13 +64,12 @@ const Login = ({navigation}) => {
             }
             console.log(response);
             dispatch(login(response.data));
-            navigation.navigate(Routes.Home);
           }}>
           <Text style={globalStyle.buttonInfo}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('SignIn');
+            navigation.navigate(Routes.SignIn);
           }}>
           <Text style={[Loginstyle.signInText]}>Don't have an account ?</Text>
         </TouchableOpacity>
